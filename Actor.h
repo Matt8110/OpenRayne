@@ -56,11 +56,35 @@ public:
 	CDemonActor* field_148;
 	CDemonActor* field_14C;
 
+	//Should be equivelent. Works when replaced in game
+	CDemonActor();
+	//Should be equivelent. Works when replaced in game
+	void b2w();
+	//Matching
+	void FUN_0040d790();
 	//Matching
 	void applyAttachedListPosAndOrient();
 	//Matching
 	void computeDirMat();
 	//Matching
+	void setBoundingBox(CBoundingBox3D& bb);
+	//Matching
 	virtual void warpTo(const CVector& newPos, const CVector& newOrient);
+	//Matching
+	virtual bool amIVisible();
+	//Matching
+	virtual CVector getFocusPoint();
+	//Matching
+	virtual int getHarpoonBone();
+	//Matching
+	virtual CVector getLookAtPoint();
+	//Matching?? For some reason my test uses JMP instead of CALL.
+	virtual void process();
+	//Matching
+	virtual int renderTransparent();
+	//Matching
+	virtual void setHasChanged(){};
+	//Matching
+	virtual void setup();
 
 };

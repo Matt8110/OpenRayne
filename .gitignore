@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+*.elf
+
+# Asset files
+*.POD
+*.pod
+*.bmp
+*.BMP
