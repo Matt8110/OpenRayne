@@ -47,21 +47,21 @@ void CXForm::setupParentToLocal(const CVector& position, const CVector& orientat
 	l = -(position.z * k + position.x * i + position.x * j);
 }
 
-void CXForm::mul(CXForm* ret, const CXForm& other)
-{
-	ret->a = i * other.c + other.b * e + other.a * a;
-	ret->b = other.c * j + b * other.a + f * other.b;
-	ret->c = other.c * k + c * other.a + g * other.b;
-	ret->e = i * other.g + other.e * a + other.f * e;
-	ret->f = other.g * j + other.e * b + other.f * f;
-	ret->g = other.g * k + other.e * c + other.f * g;
-	ret->i = i * other.k + other.i * a + other.j * e;
-	ret->j = other.k * j + other.i * b + other.j * f;
-	ret->k = other.k * k + other.i * c + other.j * g;
-	ret->d = other.c * l + d * other.a + h * other.b + other.d;
-	ret->h = l * other.g + other.e * d + other.f * h + other.h;
-	ret->l = other.k * l + other.i * d + other.j * h + other.l;
-}
+void CXForm::mul(const CXForm& Main, const CXForm& other)
+	{
+		a = Main.i * other.c + other.b * Main.e + other.a * Main.a;
+		b = other.c * Main.j + Main.b * other.a + Main.f * other.b;
+		c = other.c * Main.k + Main.c * other.a + Main.g * other.b;
+		e = Main.i * other.g + other.e * Main.a + other.f * Main.e;
+		f = other.g * Main.j + other.e * Main.b + other.f * Main.f;
+		g = other.g * Main.k + other.e * Main.c + other.f * Main.g;
+		i = Main.i * other.k + other.i * Main.a + other.j * Main.e;
+		j = other.k * Main.j + other.i * Main.b + other.j * Main.f;
+		k = other.k * Main.k + other.i * Main.c + other.j * Main.g;
+		d = other.c * Main.l + Main.d * other.a + Main.h * other.b + other.d;
+		h = Main.l * other.g + other.e * Main.d + other.f * Main.h + other.h;
+		l = other.k * Main.l + other.i * Main.d + other.j * Main.h + other.l;
+	}
 
 CVector CXForm::extractPos_L2P()
 {

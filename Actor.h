@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdio.h>
 #include "Matrix.h"
 #include "Vector.h"
 #include "XForm.h"
@@ -60,6 +61,10 @@ public:
 	CDemonActor();
 	//Should be equivelent. Works when replaced in game
 	void b2w();
+	//Close to matching, but can't quite get it. Should be equivelent
+	void attachActor(CDemonActor* actorToAttach);
+	//Matching
+	void detachMe();
 	//Matching
 	void FUN_0040d790();
 	//Matching

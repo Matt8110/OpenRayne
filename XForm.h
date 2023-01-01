@@ -19,6 +19,6 @@ public:
 	CVector extractPBH_L2P();
 
 	//Matches
-	void mul(CXForm* ret, const CXForm& other);
+	void mul(const CXForm& Main, const CXForm& other);
 };
 

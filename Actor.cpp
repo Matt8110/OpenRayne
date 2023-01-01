@@ -94,7 +94,7 @@ void CDemonActor::applyAttachedListPosAndOrient()
 
         for (CDemonActor* tempActor = attachListStart; tempActor != nullptr; tempActor = tempActor->attachListNext)
         {
-            tempActor->xForm.mul(&tempFormB, tempForm);
+            tempFormB.mul(tempActor->xForm, tempForm);//Updated, should still match
             tempActor->warpTo(tempFormB.extractPos_L2P(), tempFormB.extractPBH_L2P());
         }
     }
@@ -168,14 +168,14 @@ int CDemonActor::getHarpoonBone()
 }
 
 void CDemonActor::setup()
-	{
-		computeDirMat();
+{
+    computeDirMat();
 
-		if (attachListPrev != nullptr)
-		{
-			//attachListPrev->attachActor(this);
-		}
-	}
+    if (attachListPrev != nullptr)
+    {
+        attachListPrev->attachActor(this);
+    }
+}
 
 void CDemonActor::process()
 {
@@ -185,4 +185,78 @@ void CDemonActor::process()
 int CDemonActor::renderTransparent()
 {
     return 0;
+}
+
+void CDemonActor::detachMe()
+{
+    CDemonActor* tempAttachListStart;
+    CDemonActor* tempAttachListPrev = attachListPrev;
+
+    if (tempAttachListPrev != nullptr)
+    {
+        CDemonActor* tempAttachListNext = attachListNext;
+        attachListPrev = nullptr;
+        attachListNext = nullptr;
+        tempAttachListStart = tempAttachListPrev->attachListStart;
+
+        if (tempAttachListPrev->attachListStart == this)
+        {
+            tempAttachListPrev->attachListStart = tempAttachListNext;
+            return;
+        }
+
+        while(true)
+        {
+            tempAttachListPrev = tempAttachListStart;
+            if (tempAttachListPrev == nullptr)
+            {
+                //gtfoSourceFile = "ACTOR.CPP";
+                //gtfoSourceLine = 0xcd2;
+                //reallyGTFO("Attach list corruption detected detaching \'%s\'", name);
+                printf("Attach list corruption detected detaching \'%s\'", name);
+            }
+
+            if (tempAttachListPrev->attachListNext == this)
+                break;
+
+            tempAttachListStart = tempAttachListPrev->attachListNext;
+        }
+
+        tempAttachListStart->attachListNext = tempAttachListNext;
+    }
+}
+
+void CDemonActor::attachActor(CDemonActor* actorToAttach)
+{
+
+    if (actorToAttach != nullptr)
+    {
+        //actorToAttach->detachMe();
+
+        for (CDemonActor* tempActor = this; tempActor != nullptr; tempActor = tempActor->attachListPrev)
+        {
+            if (tempActor == actorToAttach)
+            {
+                //reallyGTFOFile = "ACTOR.CPP";
+                //reallyGTFOLine = 0xC91;
+                //reallyGTFO("CDemonActor::attachActor - circular involving \'%s\' and \'%s\'", name, actorToAttach->name);
+                printf("CDemonActor::attachActor - circular involving \'%s\' and \'%s\'", name, actorToAttach->name);
+            }
+        }
+
+        actorToAttach->attachListPrev = this;
+        actorToAttach->attachListNext = attachListStart;
+        attachListStart = actorToAttach;
+
+        CXForm localToParent;
+        CXForm parentToLocal;
+
+        localToParent.setupLocalToParent(actorToAttach->position, actorToAttach->orientation);
+        parentToLocal.setupParentToLocal(position, orientation);
+
+        CXForm res;
+        res.mul(localToParent, parentToLocal);
+
+        actorToAttach->xForm = res;
+    }
 }
