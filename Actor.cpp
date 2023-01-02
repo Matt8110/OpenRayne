@@ -213,6 +213,8 @@ void CDemonActor::detachMe()
                 //gtfoSourceFile = "ACTOR.CPP";
                 //gtfoSourceLine = 0xcd2;
                 //reallyGTFO("Attach list corruption detected detaching \'%s\'", name);
+
+                //Temp
                 printf("Attach list corruption detected detaching \'%s\'", name);
             }
 
@@ -240,6 +242,8 @@ void CDemonActor::attachActor(CDemonActor* actorToAttach)
                 //reallyGTFOFile = "ACTOR.CPP";
                 //reallyGTFOLine = 0xC91;
                 //reallyGTFO("CDemonActor::attachActor - circular involving \'%s\' and \'%s\'", name, actorToAttach->name);
+
+                //Temp
                 printf("CDemonActor::attachActor - circular involving \'%s\' and \'%s\'", name, actorToAttach->name);
             }
         }
@@ -259,4 +263,93 @@ void CDemonActor::attachActor(CDemonActor* actorToAttach)
 
         actorToAttach->xForm = res;
     }
+}
+
+int CDemonActor::amIHidden()
+{
+    return 0;
+}
+
+int CDemonActor::render()
+{
+    return 0;
+}
+
+void CDemonActor::archiveInt(int* val, const char* name)
+{
+    /*if (archiveMode == 1)
+    {
+        if (archiveInStream->scanf("%d", val) != 1)
+        {
+            failedToLoadProperty("Integer value", name);
+        }
+    }
+    else
+    {
+        archiveOutStream->printf("%s%d", archiveIndentString, *val);
+    }
+    FUN_0040C490("Integer value", name);*/
+}
+
+void CDemonActor::archiveFloat(float* val, const char* name)
+{
+    /*if (archiveMode == 1)
+    {
+        if (archiveInStream->scanf("%f", val) != 1)
+        {
+            failedToLoadProperty("Floating point value", name);
+        }
+    }
+    else
+    {
+        archiveOutStream->printf("%s%g", archiveIndentString, *val);
+    }
+
+    FUN_0040C490("Floating point value", name);*/
+}
+
+void CDemonActor::archiveVector(CVector* vec, const char* name)
+{
+    /*if (archiveMode == 1)
+    {
+        if (archiveInStream->scanf("%f,%f,%f", &vec->x, &vec->y, &vec->z) != 3)
+        {
+            failedToLoadProperty("3D vector", name);
+        }
+    }
+    else
+    {
+        archiveOutStream->printf("%s%g,%g,%g", archiveIndentString, vec->x, vec->y, vec->z);
+    }
+
+    FUN_0040C490("3D vector", name);*/
+}
+
+void CDemonActor::archiveOrient(CVector* vec, const char* name)
+{
+    /*if (archiveMode == 1)
+    {
+        if (archiveInStream->scanf("%f,%f,%f", &vec->x, &vec->y, &vec->z) != 3)
+        {
+            failedToLoadProperty("Euler PBH orientation", name);
+        }
+    }
+    else
+    {
+        archiveOutStream->printf("%s%g,%g,%g", archiveIndentString, vec->x, vec->y, vec->z);
+    }
+
+    FUN_0040C490("Euler PBH orientation", name);*/
+}
+
+char* CDemonActor::getActorType()
+{
+    /*gtfoSourceFile = "ACTOR.CPP";
+    gtfoSourceLine = 0x346;
+    reallyGTFO("CDemonActor::getActorType called for %s.  Should never be called for this base class!", name);*/
+
+    //Temp
+    printf("CDemonActor::getActorType called for %s.  Should never be called for this base class!", name);
+
+    return nullptr;
 }

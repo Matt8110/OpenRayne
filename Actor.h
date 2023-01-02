@@ -56,6 +56,9 @@ public:
 	CXForm xForm;
 	CDemonActor* field_148;
 	CDemonActor* field_14C;
+	static int archiveMode;
+	static void* archiveInStream;
+	static void* archiveOutStream;
 
 	//Should be equivelent. Works when replaced in game
 	CDemonActor();
@@ -91,5 +94,18 @@ public:
 	virtual void setHasChanged(){};
 	//Matching
 	virtual void setup();
-
+	//Matching
+	virtual int amIHidden();
+	//Matching
+	virtual int render();
+	//Matching
+	virtual char* getActorType(); //Should be CActorType* instead of char*
+	//Matching
+	static void archiveInt(int* val, const char* name);
+	//Matching
+	static void archiveFloat(float* val, const char* name);
+	//Matching
+	static void archiveVector(CVector* vec, const char* name);
+	//Matching
+	static void archiveOrient(CVector* vec, const char* name);
 };
