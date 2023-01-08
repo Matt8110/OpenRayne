@@ -353,3 +353,113 @@ char* CDemonActor::getActorType()
 
     return nullptr;
 }
+
+void CDemonActor::setHasChanged()
+{
+    return;
+}
+
+bool CDemonActor::collideWithMe()
+{
+    return 0;
+}
+
+int CDemonActor::vfunction15()
+{
+    return 0;
+}
+
+int CDemonActor::vfunction17()
+{
+    return 0;
+}
+
+int CDemonActor::vfunction19()
+{
+    return 0;
+}
+
+int CDemonActor::vfunction21()
+{
+    return 0;
+}
+
+void CDemonActor::vfunction22()
+{
+    return;
+}
+
+void CDemonActor::getHurt()
+{
+    return;
+}
+
+void CDemonActor::vfunction24()
+{
+    return;
+}
+
+void CDemonActor::vfunction25()
+{
+    return;
+}
+
+void CDemonActor::vfunction26()
+{
+    return;
+}
+
+int CDemonActor::vfunction27()
+{
+    return 0;
+}
+
+int CDemonActor::vfunction30()
+{
+    return 0;
+}
+
+void CDemonActor::vfunction31()
+{
+    return;
+}
+
+void CDemonActor::vfunction32()
+{
+    return;
+}
+
+void CDemonActor::vfunction33()
+{
+    return;
+}
+
+int CDemonActor::vfunction34()
+{
+    return 0;
+}
+
+int CDemonActor::vfunction35()
+{
+    return 0;
+}
+
+bool CDemonActor::vfunction42()
+{
+    return 0;
+}
+
+int CDemonActor::vfunction44()
+{
+    return 0;
+}
+
+int CDemonActor::vfunction5()
+{
+    return 0;
+}
+
+int CDemonActor::vfunction7()
+{
+    return 1;
+}

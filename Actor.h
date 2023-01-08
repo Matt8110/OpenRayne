@@ -66,46 +66,51 @@ public:
 	void b2w();
 	//Close to matching, but can't quite get it. Should be equivelent
 	void attachActor(CDemonActor* actorToAttach);
+
 	//Matching
 	void detachMe();
-	//Matching
 	void FUN_0040d790();
-	//Matching
 	void applyAttachedListPosAndOrient();
-	//Matching
 	void computeDirMat();
-	//Matching
 	void setBoundingBox(CBoundingBox3D& bb);
-	//Matching
+
 	virtual void warpTo(const CVector& newPos, const CVector& newOrient);
-	//Matching
 	virtual bool amIVisible();
-	//Matching
 	virtual CVector getFocusPoint();
-	//Matching
 	virtual int getHarpoonBone();
-	//Matching
 	virtual CVector getLookAtPoint();
-	//Matching?? For some reason my test uses JMP instead of CALL.
-	virtual void process();
-	//Matching
+	virtual void process();//For some reason my test uses JMP instead of CALL.
 	virtual int renderTransparent();
-	//Matching
-	virtual void setHasChanged(){};
-	//Matching
+	virtual void setHasChanged();
 	virtual void setup();
-	//Matching
 	virtual int amIHidden();
-	//Matching
 	virtual int render();
-	//Matching
-	virtual char* getActorType(); //Should be CActorType* instead of char*
-	//Matching
+	virtual char* getActorType(); //Should return CActorType* instead of char*
+	virtual void getHurt();
+	virtual bool collideWithMe();
+	virtual int vfunction15();
+	virtual int vfunction17();
+	virtual int vfunction19();
+	virtual int vfunction21();
+	virtual void vfunction22();
+	virtual void vfunction24();
+	virtual void vfunction25();
+	virtual void vfunction26();
+	virtual int vfunction27();
+	virtual int vfunction30();
+	virtual void vfunction31();
+	virtual void vfunction32();
+	virtual void vfunction33();
+	virtual int vfunction34();
+	virtual int vfunction35();
+	virtual bool vfunction42();
+	virtual int vfunction44();
+	virtual int vfunction44();
+	virtual int vfunction5();
+	virtual int vfunction7();
+	
 	static void archiveInt(int* val, const char* name);
-	//Matching
 	static void archiveFloat(float* val, const char* name);
-	//Matching
 	static void archiveVector(CVector* vec, const char* name);
-	//Matching
 	static void archiveOrient(CVector* vec, const char* name);
 };

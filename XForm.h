@@ -6,8 +6,6 @@
 class CXForm
 {
 public:
-	static void patchFuncs();
-public:
 	float a, b, c;
 	float d, e, f;
 	float g, h, i;
