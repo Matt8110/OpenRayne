@@ -7,9 +7,10 @@
 			"command": "/usr/bin/g++",
 			"args": [
 				"-fdiagnostics-color=always",
-				"-std=c++2a",
+				"-std=c++20",
 				"-g",
 				"${workspaceFolder}/*.cpp",
+				"${workspaceFolder}/actors/*.cpp",
 				"-o",
 				"${workspaceFolder}/OpenRayne.elf",
 			],

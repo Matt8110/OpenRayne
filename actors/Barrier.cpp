@@ -4,14 +4,13 @@ int CBarrier::fileVersion = 0; //Hmm...
 
 CBarrier::CBarrier()
 {
-    size.x = 5.0f;
-    size.y = 5.0f;
     size.z = 5.0f;
-    effectClassNameList = nullptr;
+    size.y = 5.0f;
+    size.x = 5.0f;
+    effectClassNameList[0] = 0;
     addToPathGrid = 1;
 }
 
-//What's up with that string? Pointer to a pointer?
 void CBarrier::archive()
 {
     //CDemonActor::archive();
@@ -19,7 +18,7 @@ void CBarrier::archive()
 
     if (fileVersion >= 2) 
     {
-        //archiveString((char*)&effectClassNameList,"effectClassNameList");
+        //archiveString(effectClassNameList,"effectClassNameList");
         archiveInt(&addToPathGrid,"addToPathGrid");
     }
 }
@@ -55,3 +54,25 @@ void CBarrier::setup()
 
     setBoundingBox(bb);
 }
+
+/*int CBarrier::collideWithMe(CCollisionInfo* collisionInfo)
+{
+
+    if (collisionInfo->unk2 != 0)
+    {
+        return 0;
+    }
+
+    if (effectClassNameList[0] == '\0')
+    {
+        return 0;
+    }
+
+    if (gSimActor == 0 || gSimActor->isOfType(effectClassNameList))
+    {
+        return collideWithMyBoundingBox(collisionInfo);;
+    }
+
+    return 0;
+    
+}*/

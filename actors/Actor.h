@@ -1,11 +1,11 @@
 #pragma once
 
 #include <stdio.h>
-#include "Matrix.h"
-#include "Vector.h"
-#include "XForm.h"
-#include "BoundingBox3D.h"
-#include "Utils.h"
+#include "../Matrix.h"
+#include "../Vector.h"
+#include "../XForm.h"
+#include "../BoundingBox3D.h"
+#include "../Utils.h"
 
 class CDemonActor
 {
@@ -104,7 +104,6 @@ public:
 	virtual int vfunction34();
 	virtual int vfunction35();
 	virtual bool vfunction42();
-	virtual int vfunction44();
 	virtual int vfunction44();
 	virtual int vfunction5();
 	virtual int vfunction7();
