@@ -1,6 +1,39 @@
 #include "Character.h"
 
 
+int CCharacter::getDeadState()
+{
+    /*char* str;
+
+    //HMMMMMMMMMMMMMMm, no idea wtf is going on here...may not be a char pointer
+    if (field_d0 != (char*)0x78A123)
+    {
+        return 2;
+    }
+
+    str = field_1f8->FUN_4D9AE0();
+
+    if (str[0] == 'D' || str[0] == 'd')
+    {
+        if (!strncmp(str, "DIE", 3))
+        {
+            return 1;
+        }
+
+        if (!strncmp(str, "DEAD", 4))
+        {
+            return 2;
+        }
+
+        if (!strcmp(str, "DEAD_POSSUM"))
+        {
+            return 0xFFFFFFFE;
+        }
+    }*/
+
+    return 0;
+}
+
 //This is just weird, man
 int CCharacter::getAimPoint(CVector& vec)
 {
@@ -25,4 +58,48 @@ int CCharacter::getAimPoint(CVector& vec)
     vec.y = temp2.y + 1.0f;
 
     return 1;
+}
+
+void CCharacter::vfunction71(float val)
+{
+    field_5d4 = val;
+}
+
+int CCharacter::vfunction72()
+{
+    if (field_458 == 0)
+    {
+        return 1;
+    }
+
+    if (field_468 == 0)
+    {
+        return field_46c == 0;
+    }
+
+    return 0;
+}
+
+int CCharacter::vfunction73()
+{
+    return 0;
+}
+
+int CCharacter::vfunction7()
+{
+    return 0;
+}
+
+void CCharacter::warpTo(const CVector& newPos, const CVector& newOrient)
+{
+    if (position.x != newPos.x || position.z != newPos.z || fabs(newPos.y - position.y) > 5.0f)
+    {
+        field_51c = 9999.0f;
+    }
+
+    CDemonActor::warpTo(newPos, newOrient);
+
+    field_53c.x = 0;
+    field_53c.y = 0;
+    field_53c.z = 0;
 }

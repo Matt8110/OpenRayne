@@ -57,7 +57,7 @@ public:
     int field_c4;
     int field_c8;
     int field_cc;
-    int field_d0;
+    char* field_d0;
     int field_d4;
     int field_d8;
     int field_dc;
@@ -340,9 +340,9 @@ public:
     int field_530;
     int field_534;
     int field_538;
-    int field_53c;
-    int field_540;
-    int field_544;
+    CVector field_53c;
+    //int field_540;
+    //int field_544;
     /*CClothList*/int* field_548;
     int field_54c;
     int field_550;
@@ -378,7 +378,7 @@ public:
     int field_5c8;
     int field_5cc;
     int field_5d0;
-    int field_5d4;
+    float field_5d4;
     int field_5d8;
     int field_5dc;
     int field_5e0;
@@ -540,8 +540,15 @@ public:
 
     //Matching
     virtual int getAimPoint(CVector& vec); //vfunction17
+    virtual int vfunction7() override;
+    virtual void vfunction71(float val);
+    virtual int vfunction72();
+    virtual int vfunction73();
 
-    //Not implemented
-    virtual int getDeadState(); //vfunction55
+    //Semi-matching
+    virtual int getDeadState(); //Two instructions swapped.
+
+    //Should be equivelent
+    virtual void warpTo(const CVector& newPos, const CVector& newOrient) override;
 private:
 };
