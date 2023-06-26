@@ -103,3 +103,17 @@ void CCharacter::warpTo(const CVector& newPos, const CVector& newOrient)
     field_53c.y = 0;
     field_53c.z = 0;
 }
+
+void CCharacter::setScriptTurnToFace(CDemonActor* act)
+{
+    field_45c = -1.0f;
+    field_458 = act;
+    field_460 = 1000000000000000000000000000000.0f; //May be wrong... but wtf?
+    field_468 = 1.000001f;
+    vfunction71(-1.0f);
+}
+
+int CCharacter::vfunction66()
+{
+    return field_46c == 0;
+}

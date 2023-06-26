@@ -1,8 +1,11 @@
 #pragma once
 
 #include <math.h>
+#include <iostream>
+#include <stdio.h>
+#include <stdarg.h>
 
-class Utils
+class CUtils
 {
 public:
     static float wrapPi(float x)
@@ -17,5 +20,15 @@ public:
         }
 
         return x;
+    }
+
+    static void reallyGTFO(const char* format, ...)
+    {
+        va_list list;
+        va_start(list, format);
+        vfprintf(stdout, format, list);
+        va_end(list);
+
+        exit(0);
     }
 };

@@ -283,9 +283,9 @@ public:
     int field_44c;
     int field_450;
     int field_454;
-    int field_458;
-    int field_45c;
-    int field_460;
+    CDemonActor* field_458;
+    float field_45c;
+    float field_460;
     int field_464;
     int field_468;
     int field_46c;
@@ -544,6 +544,9 @@ public:
     virtual void vfunction71(float val);
     virtual int vfunction72();
     virtual int vfunction73();
+    virtual void setScriptTurnToFace(CDemonActor* act);
+    virtual int vfunction66();
+
 
     //Semi-matching
     virtual int getDeadState(); //Two instructions swapped.

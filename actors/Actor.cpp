@@ -102,9 +102,9 @@ void CDemonActor::applyAttachedListPosAndOrient()
 
 void CDemonActor::computeDirMat()
 {
-    orientation.x = Utils::wrapPi(orientation.x);
-    orientation.z = Utils::wrapPi(orientation.z);
-    orientation.y = Utils::wrapPi(orientation.y);
+    orientation.x = CUtils::wrapPi(orientation.x);
+    orientation.z = CUtils::wrapPi(orientation.z);
+    orientation.y = CUtils::wrapPi(orientation.y);
 
     orientationMatrix.genMatrix(orientation);
     b2w();
@@ -212,10 +212,7 @@ void CDemonActor::detachMe()
             {
                 //gtfoSourceFile = "ACTOR.CPP";
                 //gtfoSourceLine = 0xcd2;
-                //reallyGTFO("Attach list corruption detected detaching \'%s\'", name);
-
-                //Temp
-                printf("Attach list corruption detected detaching \'%s\'", name);
+                CUtils::reallyGTFO("Attach list corruption detected detaching \'%s\'", name);
             }
 
             if (tempAttachListPrev->attachListNext == this)
@@ -233,7 +230,7 @@ void CDemonActor::attachActor(CDemonActor* actorToAttach)
 
     if (actorToAttach != nullptr)
     {
-        //actorToAttach->detachMe();
+        actorToAttach->detachMe();
 
         for (CDemonActor* tempActor = this; tempActor != nullptr; tempActor = tempActor->attachListPrev)
         {
@@ -241,10 +238,7 @@ void CDemonActor::attachActor(CDemonActor* actorToAttach)
             {
                 //reallyGTFOFile = "ACTOR.CPP";
                 //reallyGTFOLine = 0xC91;
-                //reallyGTFO("CDemonActor::attachActor - circular involving \'%s\' and \'%s\'", name, actorToAttach->name);
-
-                //Temp
-                printf("CDemonActor::attachActor - circular involving \'%s\' and \'%s\'", name, actorToAttach->name);
+                CUtils::reallyGTFO("CDemonActor::attachActor - circular involving \'%s\' and \'%s\'", name, actorToAttach->name);
             }
         }
 
@@ -344,12 +338,9 @@ void CDemonActor::archiveOrient(CVector* vec, const char* name)
 
 char* CDemonActor::getActorType()
 {
-    /*gtfoSourceFile = "ACTOR.CPP";
-    gtfoSourceLine = 0x346;
-    reallyGTFO("CDemonActor::getActorType called for %s.  Should never be called for this base class!", name);*/
-
-    //Temp
-    printf("CDemonActor::getActorType called for %s.  Should never be called for this base class!", name);
+    //gtfoSourceFile = "ACTOR.CPP";
+    //gtfoSourceLine = 0x346;
+    CUtils::reallyGTFO("CDemonActor::getActorType called for %s.  Should never be called for this base class!", name);
 
     return nullptr;
 }

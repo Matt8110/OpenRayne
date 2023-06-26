@@ -2,6 +2,7 @@
 
 #include <math.h>
 #include "Vector.h"
+#include "Utils.h"
 
 class CMatrix
 {
@@ -12,4 +13,5 @@ public:
 
 	void genMatrix(const CVector& vector);
 	void Identity();
+	void invert();
 };

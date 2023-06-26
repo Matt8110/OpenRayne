@@ -2,14 +2,15 @@
 
 #include <math.h>
 
-
 class CVector
 {
 public:
 	float x, y, z;
 
 	CVector();
+	CVector(const CVector& vec);
 	CVector(float x, float y, float z);
+	void normalize();
 
 	CVector operator = (const CVector otherVec)
 	{
@@ -26,6 +27,26 @@ public:
 		result.x = otherVec.x + x;
 		result.y = otherVec.y + y;
 		result.z = otherVec.z + z;
+
+		return result;
+	}
+
+	CVector operator * (const CVector& otherVec)
+	{
+		CVector result;
+		result.x = otherVec.x * x;
+		result.y = otherVec.y * y;
+		result.z = otherVec.z * z;
+
+		return result;
+	}
+
+	CVector operator / (const CVector& otherVec)
+	{
+		CVector result;
+		result.x = otherVec.x / x;
+		result.y = otherVec.y / y;
+		result.z = otherVec.z / z;
 
 		return result;
 	}
