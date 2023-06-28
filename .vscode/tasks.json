@@ -11,6 +11,7 @@
 				"-g",
 				"${workspaceFolder}/*.cpp",
 				"${workspaceFolder}/actors/*.cpp",
+				"${workspaceFolder}/engine/*.cpp",
 				"-o",
 				"${workspaceFolder}/OpenRayne.elf",
 			],

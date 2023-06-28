@@ -2,7 +2,7 @@
 
 #include <math.h>
 #include "Vector.h"
-#include "Utils.h"
+#include "../Utils.h"
 
 class CMatrix
 {

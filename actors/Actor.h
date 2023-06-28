@@ -1,10 +1,10 @@
 #pragma once
 
 #include <stdio.h>
-#include "../Matrix.h"
-#include "../Vector.h"
-#include "../XForm.h"
-#include "../BoundingBox3D.h"
+#include "../engine/Matrix.h"
+#include "../engine/Vector.h"
+#include "../engine/XForm.h"
+#include "../engine/BoundingBox3D.h"
 #include "../Utils.h"
 
 class CDemonActor
